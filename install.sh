@@ -47,7 +47,7 @@ sudo systemctl enable lightdm
 
 # Setting up VPN
 cd /etc/openvpn
-sudo wget https://downloads.nordcdn.com/configs/archives/servers/openvpn.zip
+sudo wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
 sudo unzip ovpn.zip
 sudo rm ovpn.zip
 

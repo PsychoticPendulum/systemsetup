@@ -49,7 +49,7 @@ makepkg -si
 
 
 feed 'Installing basic yay packages'
-yay -S polybar sweet-cursor-theme-git sweet-folders-icons-git checkupdates-aur
+yay -S polybar sweet-cursor-theme-git sweet-folders-icons-git checkupdates+aur sweet-gtk-theme-dark onefetch
 
 
 feed 'Handcrafting some configs'
@@ -57,6 +57,17 @@ sudo vim /etc/default/grub
 sudo vim /etc/lightdm/lightdm.conf
 sudo vim /etc/lightdm/lightdm-webkit2-greeter.conf
 sudo systemctl enable lightdm
+
+
+feed 'Creating mountpoints'
+cd /mnt
+mkdir NAS media virtual share
+sudo chown $USER:$USER -R *
+cd
+
+feed 'Creating GTK Theme'
+lxappearance
+sudo lxappearance
 
 
 feed 'Setting up VPN'

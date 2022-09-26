@@ -9,7 +9,7 @@ function feed () {
 }
 
 feed 'Installing base packages'
-sudo pacman -S xorg xorg-xinit i3 adobe-source-code-pro-fonts vim fish ranger neofetch kitty git ttf-font-awesome htop bpytop cmatrix asciiquarium bat base-devel lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan openssh openvpn wget python-pip nasm w3m qbittorrent firefox awesome-terminal-fonts arandr sof-firmware rofi unzip pcmanfm lxappearance gimp code qbittorrent sdl2 sdl2_ttf ncdu veracrypt jdk11-openjdk libreoffice simplescreenrecorder speedtest-cli tmux youtube-dl sl figlet xfce4-screenshooter xfce4-appfinder lolcat feh exa lsd picom arc-gtk-theme 
+sudo pacman -S xorg xorg-xinit i3 adobe-source-code-pro-fonts vim fish ranger neofetch kitty git ttf-font-awesome htop bpytop cmatrix asciiquarium bat base-devel lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan openssh openvpn wget python-pip nasm w3m qbittorrent firefox awesome-terminal-fonts arandr sof-firmware rofi unzip pcmanfm lxappearance gimp code qbittorrent sdl2 sdl2_ttf ncdu veracrypt jdk11-openjdk libreoffice simplescreenrecorder speedtest-cli tmux youtube-dl sl figlet xfce4-screenshooter xfce4-appfinder lolcat feh exa lsd picom arc-gtk-theme net-tools
 
 
 feed 'Installing Python Libraries'

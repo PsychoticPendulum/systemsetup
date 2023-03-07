@@ -78,6 +78,9 @@ Info "Configuring system ..."
 mkdir -p /home/$local_user/.config/i3
 curl -s https://raw.githubusercontent.com/PsychoticPendulum/dotfiles/main/i3/config_default > /home/$local_user/.config/i3/config
 Status "i3 config" "i3 config"
+mkdir -p /home/$local_user/.config/kitty
+curl -s https://raw.githubusercontent.com/PsychoticPendulum/dotfiles/main/kitty/config > /home/$local_user/.config/kitty/config
+Status "kitty config" "kitty config"
 curl -s https://raw.githubusercontent.com/PsychoticPendulum/dotfiles/main/vimrc > /home/$local_user/.vimrc
 Status "vimrc" "vimrc"
 curl -s https://raw.githubusercontent.com/PsychoticPendulum/dotfiles/main/bashrc > /home/$local_user/.bashrc
@@ -88,7 +91,8 @@ Info "Downloading basic scripts ..."
 git clone https://github.com/psychoticpendulum/scripts
 mv -fv scripts/*.* /home/$local_user/.scripts/
 chown -R $local_user:$local_user /home/$local_user/.scripts/*
-rm -Rfv scripts
+rm -Rf scripts
+Status "Scripts downloaded!" "Unable to download scripts"
 
 Info "Enabling SSH Service"
 systemctl start ssh

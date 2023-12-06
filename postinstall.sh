@@ -50,7 +50,7 @@ sudo pacman -Syyu
 
 
 Info "Installing Default Packages"
-sudo pacman -S --noconfirm fish ranger neofetch vim neovim tmux vi git nasm base-devel bat exa lsd wget w3m nfs-utils rclone radare2 feh lolcat ttf-font-awesome fzf awesome-terminal-fonts sl parallel alsa-utils jq yt-dlp nord-fonts mesa cmatrix asciiquarium ncdu
+sudo pacman -S --noconfirm fish ranger neofetch vim neovim tmux vi git nasm base-devel bat exa lsd wget w3m nfs-utils rclone radare2 feh lolcat ttf-font-awesome fzf awesome-terminal-fonts sl parallel alsa-utils jq yt-dlp mesa cmatrix asciiquarium ncdu
 
 
 Info "Installing GUI Packages"

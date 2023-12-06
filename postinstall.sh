@@ -6,6 +6,7 @@ Info () {
 
 Success () {
     printf "\x1B[1;32;7m [OK] \x1B[0m\t$1\n"
+	sleep 1
 }
 
 Fail () {
@@ -50,7 +51,7 @@ sudo pacman -Syyu
 
 
 Info "Installing Default Packages"
-sudo pacman -S --noconfirm fish ranger neofetch vim neovim tmux vi git nasm base-devel bat exa lsd wget w3m nfs-utils rclone radare2 feh lolcat ttf-font-awesome fzf awesome-terminal-fonts sl parallel alsa-utils jq yt-dlp mesa cmatrix asciiquarium ncdu
+sudo pacman -S --noconfirm fish ranger neofetch vim neovim tmux vi git nasm base-devel bat exa lsd wget w3m nfs-utils rclone radare2 feh lolcat ttf-font-awesome fzf awesome-terminal-fonts sl parallel alsa-utils jq yt-dlp mesa cmatrix asciiquarium ncdu tree
 
 
 Info "Installing GUI Packages"
@@ -79,15 +80,24 @@ mv dotfiles .config
 rm .bashrc .vimrc
 ln -sF .config/bashrc .bashrc
 ln -sF .config/vimrc .vimrc
+tree
+Success "Configuration files installed!"
 
 
 Info "Creating /home Directory Layout"
-mkdir dev file temp
+mkdir dev file temp bin
+
+
+Info "Installing Basic Scripts"
+git clone https://github.com/psychoticpendulum/scripts
+mv scripts dev/.scripts
+tree
+Success "Scripts installed!"
 
 
 Info "Creating /mnt Directory Layout"
 cd /mnt
-mkdir media volumes virtual temp nas share
-mkdir share/od share/bzod share/webdav share/gd
+sudo mkdir media volumes virtual temp nas share
+sudo mkdir share/od share/bzod share/webdav share/gd
 sudo chown -R $USER:$USER *
 cd ~/

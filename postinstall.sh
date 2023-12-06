@@ -80,7 +80,7 @@ mv dotfiles .config
 rm .bashrc .vimrc
 ln -sF .config/bashrc .bashrc
 ln -sF .config/vimrc .vimrc
-tree
+tree ~/.config
 Success "Configuration files installed!"
 
 
@@ -91,7 +91,7 @@ mkdir dev file temp bin
 Info "Installing Basic Scripts"
 git clone https://github.com/psychoticpendulum/scripts
 mv scripts dev/.scripts
-tree
+tree ~/
 Success "Scripts installed!"
 
 
@@ -100,4 +100,6 @@ cd /mnt
 sudo mkdir media volumes virtual temp nas share
 sudo mkdir share/od share/bzod share/webdav share/gd
 sudo chown -R $USER:$USER *
+tree /mnt
+Success "Mountpoints set up!"
 cd ~/

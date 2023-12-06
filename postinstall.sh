@@ -67,4 +67,27 @@ cd ~/
 
 
 Info "Installing AUR Packages"
-yay -S --noconfirm nordvpn-bin
+yay -S --noconfirm nordvpn-bin downgrade
+
+
+Info "Installing System Configuration"
+git clone https://github.com/psychoticpendulum/dotfiles
+cd dotfiles
+cp -Rfv * .* ~/.config
+cd ~/
+mv dotfiles .config
+rm .bashrc .vimrc
+ln -sF .config/bashrc .bashrc
+ln -sF .config/vimrc .vimrc
+
+
+Info "Creating /home Directory Layout"
+mkdir dev file temp
+
+
+Info "Creating /mnt Directory Layout"
+cd /mnt
+mkdir media volumes virtual temp nas share
+mkdir share/od share/bzod share/webdav share/gd
+sudo chown -R $USER:$USER *
+cd ~/

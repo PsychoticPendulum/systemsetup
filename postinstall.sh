@@ -1,36 +1,20 @@
 #! /usr/bin/bash
 
+
+echo $1
+KEY="$1@"
+if [[ -z $1 ]]; then
+	KEY=""
+fi
+
+
 Info () {
-    printf "\x1B[1;7m[INFO]\x1B[0m\t$1\n"
+    printf "\x1B[1;7m[INFO]\x1B[0;1m\t$1\x1B[0m\n"
 }
 
 Success () {
-    printf "\x1B[1;32;7m [OK] \x1B[0m\t$1\n"
+    printf "\x1B[1;32;7m [OK] \x1B[0;1m\t$1\x1B[0m\n"
 	sleep 1
-}
-
-Fail () {
-    printf "\x1B[1;31;7m[FAIL]\x1B[0m\t$1\n"
-	if [[ -z $2 ]]; then
-		exit 1
-	fi
-}
-
-Warning () {
-    printf "\x1B[1;31m$1\x1B[0m\n"
-}
-
-Message () {
-    printf "\x1B[1;35;7m$1\x1B[0m\n"
-}
-
-
-Status () {
-	if [[ $? -eq 0 ]]; then
-		Success "$1"
-	else
-		Fail "$2"
-	fi
 }
 
 
@@ -41,9 +25,10 @@ fi
 Success "Permissions are fine"
 
 
-Info "Configuring pacman"
+Info "Pacman Configuration"
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 11\nILoveCandy/' /etc/pacman.conf
+Success "Pacman Configuration"
 
 
 Info "Updating System"
@@ -69,29 +54,40 @@ cd ~/
 
 Info "Installing AUR Packages"
 yay -S --noconfirm nordvpn-bin downgrade
-
+sudo downgrade fish
 
 Info "Installing System Configuration"
-git clone https://github.com/psychoticpendulum/dotfiles
+git clone https://$(KEY)github.com/psychoticpendulum/dotfiles
 cd dotfiles
 cp -Rfv * .* ~/.config
 cd ~/
-mv dotfiles .config
+cp -Rfv dotfiles .config
+rm -Rfv dotfiles
 rm .bashrc .vimrc
 ln -sF .config/bashrc .bashrc
 ln -sF .config/vimrc .vimrc
-tree ~/.config
 Success "Configuration files installed!"
 
 
 Info "Creating /home Directory Layout"
 mkdir dev file temp bin
+tree
+
+
+Info "Installing Vim Plugins"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c "PlugInstall" -c ":q!" -c ":q!"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim -c "PlugInstall" -c ":q!" -c ":q!"
 
 
 Info "Installing Basic Scripts"
-git clone https://github.com/psychoticpendulum/scripts
-mv scripts dev/.scripts
-tree ~/
+git clone https://$(KEY)github.com/psychoticpendulum/scripts
+cd scripts
+cp -Rfv * .* ~/bin
+cd ~/
+cp -Rfv scripts bin
+rm -Rfv scripts
 Success "Scripts installed!"
 
 

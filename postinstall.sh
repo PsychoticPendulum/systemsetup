@@ -40,7 +40,7 @@ sudo pacman -S --noconfirm fish ranger neofetch vim neovim tmux vi git nasm base
 
 
 Info "Installing GUI Packages"
-sudo pacman -S --noconfirm kitty xorg xorg-xinit i3 polybar firefox rofi xfce4-terminal pcmanfm signal-desktop element-desktop telegram-desktop xfce4-screenshooter qbittorrent virtualbox pavucontrol lxappearance picom arandr lightdm lightdm-webkit2-greeter mpv kdenlive
+sudo pacman -S --noconfirm kitty xorg xorg-xinit i3 polybar firefox rofi xfce4-terminal pcmanfm signal-desktop element-desktop telegram-desktop xfce4-screenshooter qbittorrent virtualbox pavucontrol lxappearance picom arandr lightdm lightdm-webkit2-greeter mpv kdenlive tmux mesa llvm xf86-video-intel mosquitto exfat-utils cmatrix go net-tools cron vlock atril nodejs ttf-dejavu figlet
 
 
 Info "Arch User Repository"

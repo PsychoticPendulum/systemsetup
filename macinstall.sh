@@ -71,7 +71,7 @@ if [[ $answer = 'Y' ]] || [[ $answer = 'y' ]]; then
 fi
 
 Info "Installing packages ..."
-brew install tmux kitty i3 htop fish vim dmenu git openssh-client xfce4-screenshooter curl ranger
+brew install tmux kitty htop fish vim curl ranger htop
 Status "Packages installed" "Unable to install packages"
 
 Info "Configuring system ..."

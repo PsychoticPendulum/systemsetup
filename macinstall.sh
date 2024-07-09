@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 Info () {
     printf "\x1B[1;7m[INFO]\x1B[0m\t$1\n"

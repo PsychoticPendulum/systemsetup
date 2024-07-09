@@ -93,8 +93,3 @@ mv -fv scripts/*.* /Users/$local_user/.scripts/
 chown -R $local_user:$local_user /Users/$local_user/.scripts/*
 rm -Rf scripts
 Status "Scripts downloaded!" "Unable to download scripts"
-
-Info "Enabling SSH Service"
-systemctl start ssh
-systemctl enable ssh
-Status "SSH is active" "Unable to enable or start SSH"
